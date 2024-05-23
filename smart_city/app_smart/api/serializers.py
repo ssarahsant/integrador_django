@@ -2,6 +2,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
+from app_smart.models import Sensor
 
 # Criação de uma classe para Manipulação do Banco
 # pega os metadados (dados que trafega na api) 
@@ -29,3 +30,11 @@ class UserSerializer(serializers.ModelSerializer):
     # evitando a violação desse campo sensivel 
     extra_kwargs = {'password': {'write_only': True}}
 
+
+# Criação de Classe para Comunicação com o banco de dados
+# Serializa a comunicação com o sensor
+class SensorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sensor
+        fields = '__all__' # permite o trafego de todos os campos da tabela sensor
+        
