@@ -35,4 +35,43 @@ class Sensor(models.Model):
     def __str__(self):
         return f"{self.tipo} - {self.localizacao}"
     
-    
+# Modelagem da Tabela para Sensores de Temperatura
+class TemperaturaData(models.Model):
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
+    valor = models.FloatField()
+    # timestamp = models.DateTimeField(auto_now_add = True)
+    timestamp = models.DateTimeField()
+
+
+    def __str__(self):
+        return f"Temperatura {self.valor} C - {self.timestamp}"
+
+# Modelagem da Tabela para Sensores de Umiade
+class UmidadeData(models.Model):
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
+    valor = models.FloatField()
+    timestamp = models.DateTimeField()
+
+
+    def __str__(self):
+        return f"Umidade {self.valor} % - {self.timestamp}"
+
+# Modelagem da Tabela para Sensores Contador
+class ContadorData(models.Model):
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField()
+
+
+    def __str__(self):
+        return f"Contagem {self.sensor} - {self.timestamp}"
+
+
+# Modelagem da Tabela para Sensores de Luminosidade
+class LuminosidadeData(models.Model):
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
+    valor = models.FloatField()
+    timestamp = models.DateTimeField()
+
+
+    def __str__(self):
+        return f"Luminosidade {self.valor} - {self.timestamp}"
