@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'app_smart',
     'rest_framework_simplejwt.token_blacklist',
-    'django_filters'
+    'django_filters',
+    'corsheaders',
 ]
 
 # criação de um trecho de código para funcionamento do jwt
@@ -66,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware','django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'smart_city.urls'
@@ -140,3 +142,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ALL_ORIGINS=TrueCORS_ALLOWED_ORIGINS = [    
+    'http://localhost:5173', ]  # Adicione aqui os domínios que deseja permitir
