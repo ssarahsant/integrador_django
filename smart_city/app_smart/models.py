@@ -13,8 +13,7 @@ class Sensor(models.Model):
         ('Temperatura', 'Temperatura'),
         ('Umidade', 'Umidade'),
         ('Contador', 'Contador'),
-        ('Luminosidade', 'Luminosidade')
-    ]
+        ('Luminosidade', 'Luminosidade')    ]
 
     # Criação dos campos/colunas da Tabela Sensor
 
@@ -22,7 +21,7 @@ class Sensor(models.Model):
     tipo = models.CharField(max_length=50, choices=TIPOS_SENSOR_CHOICES)
     #  mac_address = identificador de plavcas eletronicas
     # alfa numero que tem as informação de cada placa que se comunica
-    mac_address = models.CharField(max_length=20, null=True)
+    mac_address = models.CharField(max_length=20, null=True, blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
     localizacao = models.CharField(max_length=100)

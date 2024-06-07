@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-907cz-0v4=13m2+5p0hry=!lq55&t8e6623*q_8yi+il!y%v))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.0.2.2']
+ALLOWED_HOSTS = ['10.0.2.2', '127.0.0.1']
 
 
 # Application definition
@@ -55,7 +55,7 @@ REST_FRAMEWORK = {
 
 # criação de um trecho de código para funcionamento do jwt
 SIMPLE_JWT = {
-    'ACESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'ACESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
 
